@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
@@ -10,10 +11,9 @@
   "name": "http-backend",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
