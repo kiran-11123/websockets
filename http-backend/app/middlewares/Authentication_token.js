@@ -5,7 +5,7 @@ dotenv.config({ path: "../.env" });
 const JWT_SECRET = process.env.JWT_SECRET
 
 
-export default Authentication_token = async(req,res)=>{
+async function Authentication_token_function(req,res,next){
      
 
    const token = req.cookies?.token;
@@ -35,3 +35,5 @@ export default Authentication_token = async(req,res)=>{
 
     }
 }
+
+export default Authentication_token_function;
