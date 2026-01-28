@@ -9,7 +9,7 @@ const connectDB = async () => {
 
     try{
 
-        await  mongoose.connect(MONGO_URI );
+        await  mongoose.connect(MONGO_URI);
 
         console.log("DB connected")
 

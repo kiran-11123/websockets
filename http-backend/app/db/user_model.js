@@ -8,9 +8,9 @@ const User_Schema  = new mongoose.Schema({
     password : {type : String  , required : true}
 })
 
-const Users = mongoose.model ("Users" , User_Schema);
+const Users_models = mongoose.model ("Users" , User_Schema);
 
 
 
 
-export default Users;
+export default Users_models;

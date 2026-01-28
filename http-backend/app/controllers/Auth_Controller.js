@@ -5,8 +5,14 @@ export const SigninController = async(req,res)=>{
 
         const {email , password} = req.body;
 
-        const message = await SigninService(email , password);
 
+        const message = await SigninService(email , password);
+        
+        if(message===null){
+            return res.status(400).json({
+                message : "Credentails Wrong"
+            })
+        }
         res.cookie("token" , message ,  {
             
             httpOnly:true,

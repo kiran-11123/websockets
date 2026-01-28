@@ -1,7 +1,6 @@
-import Users from '../db/user_model.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-
+import Users_models from '../db/user_model.js'
 import dotenv from 'dotenv'
 import e from 'express';
 dotenv.config({ path: "../.env" });
@@ -12,9 +11,10 @@ export const SigninService = async(email ,password)=>{
       
     try{
 
-
-        const find_user = await Users.findOne({email  :email});
-        console.log("Found user: ", find_user);
+      
+        const find_user = await Users_models.findOne({email});
+       
+        console.log("User found: ", find_user);
 
         if(!find_user){
              throw new Error("Credentails Wrong")
@@ -47,13 +47,13 @@ export const SignUpService = async(email , username , password)=>{
      
     try{
 
-        const find_user  = await Users.findOne({email  :email});
+        const find_user  = await Users_models.findOne({email  :email});
 
         if(find_user){
             throw new Error(`Email Already registred...`)
         }
 
-        const find_username = await Users.findOne({username : username});
+        const find_username = await Users_models.findOne({username : username});
 
         if(find_username){
              throw new Error(`Username already taken`)
@@ -61,7 +61,7 @@ export const SignUpService = async(email , username , password)=>{
 
         const hashpassword = await bcrypt.hash(password , 10);
 
-        const new_user =  new Users({
+        const new_user =  new Users_models({
             email,
             username,
             password: hashpassword
